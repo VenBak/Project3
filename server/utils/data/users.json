@@ -1,0 +1,35 @@
+[
+    {
+        "username": "seedUser1",
+        "email": "seeduser1@gmail.com",
+        "password": "password",
+        "firstName": "seed",
+        "lastName": "user1",
+        "watchlist": [
+            "AAPL",
+            "AMZN"
+        ]
+    },
+    {
+        "username": "seedUser2",
+        "email": "seeduser2@gmail.com",
+        "password": "password",
+        "firstName": "seed",
+        "lastName": "user2",
+        "watchlist": [
+            "AAPL",
+            "AMZN"
+        ]
+    },
+    {
+        "username": "seedUser3",
+        "email": "seeduser3@gmail.com",
+        "password": "password",
+        "firstName": "seed",
+        "lastName": "user3",
+        "watchlist": [
+            "AAPL",
+            "AMZN"
+        ]
+    }
+]
