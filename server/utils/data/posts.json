@@ -1,0 +1,20 @@
+[
+    {
+        "postText": "seed post text 1",
+        "postTitle": "seed post title 1",
+        "createdAt": "2023-01-01T00:00:00.000Z",
+        "username": "seedUser1"
+    },
+    {
+        "postText": "seed post text 2",
+        "postTitle": "seed post title 2",
+        "createdAt": "2023-01-01T00:00:00.000Z",
+        "username": "seedUser2"
+    },
+    {
+        "postText": "seed post text 3",
+        "postTitle": "seed post title 3",
+        "createdAt": "2019-01-01T00:00:00.000Z",
+        "username": "seedUser3"
+    }
+]
