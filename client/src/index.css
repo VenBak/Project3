@@ -1530,6 +1530,7 @@ label form [type='radio'] {
     flex: 0 0 8.33333%;
     max-width: 8.33333%;
   }
+}
 
   .col-xl-2 {
     flex: 0 0 16.66667%;
