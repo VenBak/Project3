@@ -24,5 +24,27 @@ export const ADD_USER = gql`
   }
 `;
 
+export const UPDATE_USER = gql`
+  mutation updateUser($updateUserId: ID!, $username: String!, $email: String!) {
+    updateUser(id: $updateUserId, username: $username, email: $email) {
+      token
+      user {
+        _id
+        username
+        password
+        email
+      }
+    }
+}
+`;
+
+export const DELETE_USER = gql`
+  mutation deleteUser($userId: ID!) {
+    deleteUser(userId: $userId) {
+      _id
+    }
+}
+`;
+
 
 
