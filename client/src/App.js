@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import {
   ApolloClient,
@@ -11,7 +10,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Update from './pages/Update';
 import Header from './components/Header';
+
 
 
 // Construct our main GraphQL API endpoint
@@ -54,34 +55,15 @@ function App() {
                 path="/signup" 
                 element={<Signup />} 
               />
+              <Route 
+                path="/update" 
+                element={<Update />} 
+              />
             </Routes>
           </div>
         </div>
       </Router>
     </ApolloProvider>
-=======
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
->>>>>>> 93a1bf2da6693afc704c907f28f2ea630db5c06b
   );
 }
 
