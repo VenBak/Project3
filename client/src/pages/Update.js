@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER, DELETE_USER } from '../utils/mutations';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import Auth from '../utils/auth';
 
-const Update = (props) => {
+const Update = () => {
     const [formState, setFormState] = useState({
         username: Auth.getProfile().data.username,
         email: Auth.getProfile().data.email
@@ -12,6 +14,13 @@ const Update = (props) => {
     const [updateUser, { error, data }] = useMutation(UPDATE_USER);
 
     const [deleteUser, { error1, data1 }] = useMutation(DELETE_USER);
+
+    const [handleShow, setHandleShow] = useState(true);
+
+    const handleClose = () => {
+        setHandleShow(false);
+        window.location.assign('/');
+    }
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -27,7 +36,7 @@ const Update = (props) => {
 
         try {
             const { data } = await updateUser({
-                variables: { updateUserId: Auth.getProfile().data._id, username: formState.username, email: formState.email}
+                variables: { updateUserId: Auth.getProfile().data._id, username: formState.username, email: formState.email }
             });
 
             Auth.updateUser(data.updateUser.token);
@@ -37,67 +46,70 @@ const Update = (props) => {
         }
     };
 
-    
+
     const handleDelete = async (event) => {
         event.preventDefault();
-        
+
         try {
             const { data } = await deleteUser({
-                variables: { userId: Auth.getProfile().data._id}
+                variables: { userId: Auth.getProfile().data._id }
             });
 
             Auth.deleteUser();
         }
         catch (e) {
             console.error(e);
-    }
+        }
 
-};
+    };
 
     return (
-        <main className="flex-row justify-center mb-4">
-            <div className="col-12 col-lg-10">
-                <div className="card">
-                    <h4 className="card-header bg-dark text-light p-2">Update Profile</h4>
-                    <div className="card-body">
-                            <form onSubmit={handleUpdate}>
-                                <input
-                                    className="form-input"
-                                    placeholder="Your username"
-                                    name="username"
-                                    type="text"
-                                    value={formState.username}
-                                    onChange={handleChange}
+        <>
+            <Modal show={handleShow} onHide={handleClose}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered>
+                <Modal.Header>
+                    <Modal.Title id="contained-modal-title-vcenter">Update</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control
+                                type='text'
+                                name='username'
+                                placeholder='username'
+                                onChange={handleChange}
+                                autoFocus
+                                value={formState.username}
                             />
-                            <input
-                                    className="form-input"
-                                    placeholder="Your email"
-                                    name="email"
-                                    type="text"
-                                    value={formState.email}
-                                    onChange={handleChange}
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control
+                                type='text'
+                                name='email'
+                                placeholder='email'
+                                onChange={handleChange}
+                                autoFocus
+                                value={formState.email}
                             />
-                                <button
-                                    className="btn btn-block btn-primary"
-                                    style={{ cursor: 'pointer' }}
-                                    type="submit"
-                                >
-                                    Submit
-                            </button>
-                        </form>
-                        <br />
-                            <button
-                            className="btn btn-block btn-primary"
-                            style={{ cursor: 'pointer' }}
-                            onClick={handleDelete}
-                                >
-                                    
-                                    Delete
-                                </button>
-                    </div>
-                </div>
-            </div>
-        </main>
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleUpdate}>
+                        Submit
+                    </Button>
+                    <Button variant="primary" onClick={handleDelete}>
+                        Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
     );
 };
 
