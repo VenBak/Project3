@@ -44,7 +44,28 @@ export const DELETE_USER = gql`
       _id
     }
 }
+
 `;
+
+export const CREATE_POST = gql`
+  mutation createPost($postTitle: String!, $postText: String!) {
+    createPost(postTitle: $postTitle, postText: $postText) {
+      _id
+      postTitle
+      postText
+      authorUsername
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+      commentCount
+    }
+  }
+`;
+
 
 
 

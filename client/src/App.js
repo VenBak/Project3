@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Update from './pages/Update';
+import CreatePost from './pages/CreatePost';
 import { useState } from 'react';
 import './App.css';
 import Home from './pages/Home';
@@ -60,6 +61,9 @@ function App() {
     if (currentPage === 'Profile') {
       return <Profile />;
     }
+    if (currentPage === 'CreatePost') {
+      return <CreatePost />;
+    }
   }
   const handlePageChange = (page) => setCurrentPage(page);
   return (
@@ -68,25 +72,29 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-      {/* Here we are calling the renderPage method which will return a component  */}
-      {renderPage()}
+          {/* Here we are calling the renderPage method which will return a component  */}
+          {renderPage()}
           <div className="container">
             <Routes>
-              <Route 
-                path="/login" 
-                element={<Login />} 
+              <Route
+                path="/login"
+                element={<Login />}
               />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
+              <Route
+                path="/signup"
+                element={<Signup />}
               />
-              <Route 
-                path="/update" 
-                element={<Update />} 
+              <Route
+                path="/update"
+                element={<Update />}
+              />
+              <Route
+                path="/createpost"
+                element={<CreatePost />}
               />
             </Routes>
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
