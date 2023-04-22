@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import Auth from '../utils/auth';
 
 const Signup = () => {
@@ -13,6 +13,13 @@ const Signup = () => {
     password: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  const [handleShow, setHandleShow] = useState(true);
+
+  const handleClose = () => { 
+    setHandleShow(false);
+    window.location.assign('/');
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,61 +46,58 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </main>
+    <>
+    <Modal show={handleShow} onHide={handleClose}
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">Sign Up</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form> 
+        <Form.Group className="mb-3">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type='text'
+              name='username'
+              placeholder='username' 
+              onChange={handleChange}
+              autoFocus
+              value={formState.username}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type='text'
+              name='email'
+              placeholder='email' 
+              onChange={handleChange}
+              autoFocus
+              value={formState.email}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              placeholder='*******'
+              name='password'
+              value={formState.password}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={handleFormSubmit}>
+          Submit
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  </>
   );
 };
 

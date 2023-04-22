@@ -17,19 +17,19 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <>
               <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn m-2" onClick={logout}>
                 Logout
               </button>
-              <Link className="btn btn-lg btn-info m-2" to="/update">
+              <Link className="btn m-2" to="/update">
                 Update
               </Link>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="btn m-2" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn m-2" to="/signup">
                 Signup
               </Link>
             </>
