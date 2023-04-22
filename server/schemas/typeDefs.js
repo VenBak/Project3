@@ -7,6 +7,21 @@ const typeDefs = gql`
     email: String
     password: String
   }
+   type Post {
+    _id: ID
+    postTitle: String
+    postText: String
+    authorUsername: String
+    createdAt: String
+    comments: [Comment]
+  }
+  type Comment {
+    _id: ID
+    commentText: String
+    commentAuthor: String
+    createdAt: String
+  }
+
 
   type Auth {
     token: ID!
@@ -23,6 +38,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     updateUser(id: ID!, username: String!, email: String!): Auth
     deleteUser(userId: ID!): User
+    createPost(postText: String!, postTitle: String!, postAuthor: String!): Post
+
   }
 `;
 
