@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const User = require('../models/Post');
+const { User } = require('../models');
 const Post = require('../models/Post');
 const { signToken } = require('../utils/auth');
 
@@ -73,7 +73,7 @@ const resolvers = {
         { $push: { posts: post._id } }
       );
 
-      return post;  
+      return post;
     },
 
 
