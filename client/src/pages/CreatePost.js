@@ -28,7 +28,6 @@ const CreatePost = () => {
 
         if (Auth.loggedIn()) {
             try {
-                console.log("HFS GETPROFILE USERNAME: ", Auth.getProfile().data.username)
                 const { data } = await createPost({
                     variables: { ...formState, postAuthor: Auth.getProfile().data.username },
                 });
