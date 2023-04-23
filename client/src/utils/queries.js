@@ -30,14 +30,33 @@ export const QUERY_POST = gql`
   `;
 
 
-// export const QUERY_ME = gql`
-//   query me {
-//     me {
-//       _id
-//       name
-//     }
-//   }
-// `;
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+    }
+  }
+`;
+
+export const QUERY_POSTS = gql`
+  query getPosts {
+    posts {
+      _id
+      postTitle
+      postText
+      postAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
 
 
 
