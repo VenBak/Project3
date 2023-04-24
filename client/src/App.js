@@ -49,31 +49,14 @@ const client = new ApolloClient({
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('Home');
-
-  const renderPage = () => {
-    if (currentPage === 'Home') {
-      return <Home />;
-    }
-    if (currentPage === 'About') {
-      return <About />;
-    }
-    if (currentPage === 'Profile') {
-      return <Profile />;
-    }
-    if (currentPage === 'CreatePost') {
-      return <CreatePost />;
-    }
-  }
-  const handlePageChange = (page) => setCurrentPage(page);
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-          {/* Here we are calling the renderPage method which will return a component  */}
-          {renderPage()}
+          <NavTabs />
+      {/* Here we are calling the renderPage method which will return a component 
+      {renderPage()} */}
           <div className="container">
             <Routes>
               <Route
@@ -91,6 +74,18 @@ function App() {
               <Route
                 path="/createpost"
                 element={<CreatePost />}
+              />
+              <Route 
+                path="/home" 
+                element={<Home />} 
+              />
+              <Route 
+                path="/about" 
+                element={<About/>} 
+              />
+              <Route 
+                path="/profile" 
+                element={<Profile />} 
               />
             </Routes>
           </div>
