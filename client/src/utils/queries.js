@@ -47,12 +47,12 @@ export const QUERY_POSTS = gql`
       postText
       postAuthor
       createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+      # comments {
+      #   _id
+      #   commentText
+      #   commentAuthor
+      #   createdAt
+      # }
     }
   }
 `;

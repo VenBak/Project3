@@ -21,8 +21,6 @@ const typeDefs = gql`
     commentAuthor: String
     createdAt: String
   }
-
-
   type Auth {
     token: ID!
     user: User
@@ -31,6 +29,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+    posts: [Post]!
     me: User
   }
 
@@ -40,7 +39,6 @@ const typeDefs = gql`
     updateUser(id: ID!, username: String!, email: String!): Auth
     deleteUser(userId: ID!): User
     createPost(postTitle: String!, postText: String!): Post
-
   }
 `;
 
