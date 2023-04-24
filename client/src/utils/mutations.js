@@ -53,7 +53,7 @@ export const CREATE_POST = gql`
       _id
       postTitle
       postText
-      authorUsername
+      postAuthor
       createdAt
       comments {
         _id
@@ -61,9 +61,8 @@ export const CREATE_POST = gql`
         commentAuthor
         createdAt
       }
-      commentCount
-    }
   }
+}
 `;
 
 

@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
+import { QUERY_POSTS, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
 const CreatePost = () => {
     const [formState, setFormState] = useState({
-        postText: "",
-        postTitle: "",
+        postTitle: '',
+        postText: '',
     });
     const [createPost, { error, data }] = useMutation(CREATE_POST);
 
@@ -25,14 +26,17 @@ const CreatePost = () => {
         event.preventDefault();
         console.log(formState);
 
-        try {
-            const { data } = await createPost({
-                variables: { ...formState },
-            });
-
-            Auth.login(data.createPost.token);
-        } catch (e) {
-            console.error(e);
+        if (Auth.loggedIn()) {
+            try {
+                const { data } = await createPost({
+                    variables: { ...formState, postAuthor: Auth.getProfile().data.username },
+                });
+                console.log(data)
+            } catch (e) {
+                console.error(e);
+            }
+        } else {
+            alert("Please log in to create a post");
         }
     };
 
@@ -54,7 +58,7 @@ const CreatePost = () => {
                                     placeholder="Your post title"
                                     name="postTitle"
                                     type="text"
-                                    value={formState.name}
+                                    value={formState.postTitle}
                                     onChange={handleChange}
                                 />
                                 <input
@@ -62,7 +66,7 @@ const CreatePost = () => {
                                     placeholder="Your post text"
                                     name="postText"
                                     type="text"
-                                    value={formState.name}
+                                    value={formState.postText}
                                     onChange={handleChange}
                                 />
                                 <button

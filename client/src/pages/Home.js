@@ -2,9 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import StockPhoto from '../images/StockPhoto.png';
-
+import { useQuery } from '@apollo/client';
+import { QUERY_POSTS } from '../utils/queries';
 
 export default function Home() {
+
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
+
     const stocks = [
         {
             id: 1, title: "Post One",
@@ -31,22 +36,27 @@ export default function Home() {
       return (
         <div>
           <h1>Stock Forum</h1>
-          <div style={{display:"flex", justifyContent:"center"}}> {
-            stocks.map(stock => {
-                return (
-                    <Card key={stocks.id} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={stock.image} />
-                    <Card.Body>
-                      <Card.Title>{stock.title}</Card.Title>
-                      <Card.Text>
-                        View and compare new Stocks that match your interest
-                      </Card.Text>
-                      <Button href = {stock.website}variant="primary">Read More</Button>
-                    </Card.Body>
-                  </Card>
-                )
-            })
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}> {
+              posts.map(post => {
+                  return (
+                      <Card key={post.id} style={{ width: '18rem' }}>
+                      <Card.Img variant="top" src={stocks[1].image} />
+                      <Card.Body>
+                        <Card.Title>{post.postTitle}</Card.Title>
+                        <Card.Text>
+                          {post.postText}
+                          {post.postAuthor}
+                        </Card.Text>
+                        <Button  href={stocks[1].website} variant="primary">Read More</Button>
+                      </Card.Body>
+                    </Card>
+                  )
+              })
             } </div>
+          )}
         </div>
       );
     }
