@@ -23,13 +23,14 @@ const Header = () => {
                             <Link className="btn btn-lg btn-info m-2" to="/update">
                                 Update
                             </Link>
+                            <Link className="btn btn-lg btn-info m-2" to="/createpost">
+                                Create Post
+                            </Link>
 
                         </>
                     ) : (
                         <>
-                            <Link className="btn btn-lg btn-info m-2" to="/createpost">
-                                Create Post
-                            </Link>
+                            
                             <Link className="btn btn-lg btn-info m-2" to="/login">
                                 Login
                             </Link>
