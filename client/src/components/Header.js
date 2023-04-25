@@ -12,6 +12,7 @@ const Header = () => {
 
     return (
         <header className= "header">
+          <h1>The Visible Hand</h1>
             <div className="container flex-row justify-space-between-lg justify-center align-center">
                 <div>
                     {Auth.loggedIn() ? (
