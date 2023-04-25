@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = "ME2E70D0E3N4FKCG";
+const apiKey = "";
 
 function findStockSymbol() {
   const companyName = document.getElementById("companyName").value.trim();
