@@ -6,19 +6,20 @@ const commentSchema = new Schema({
         required: true,
         minlength: 1
     },
+    commentAuthor: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now
     },
-    username: {
-        type: String,
-        required: true
-    },
-    post: {
+    postId: {
         type: Schema.Types.ObjectId,
-        ref: 'Posts'
+        ref: 'Post'
     }
 })
+
 
 const Comment = model('Comment', commentSchema)
 
