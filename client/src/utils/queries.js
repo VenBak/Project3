@@ -11,24 +11,17 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_POST = gql`
-  query Post($postTitle: String!) {
-  post(postTitle: $postTitle) {
-    _id
-    postTitle
-    postText
-    authorUsername
-    createdAt
-      comments {
+export const QUERY_SINGLE_POST = gql`
+  query getSinglePost($postId: ID!) {
+    post(postId: $postId) {
       _id
-      commentText
-      commentAuthor
+      postTitle
+      postText
+      postAuthor
       createdAt
     }
-  } 
   }
-  `;
-
+`;
 
 export const QUERY_ME = gql`
   query me {

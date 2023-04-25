@@ -13,6 +13,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Update from './pages/Update';
 import CreatePost from './pages/CreatePost';
+import SinglePost from './pages/SinglePost';
 import { useState } from 'react';
 import './App.css';
 import Home from './pages/Home';
@@ -59,6 +60,10 @@ function App() {
       {renderPage()} */}
           <div className="container">
             <Routes>
+              <Route
+                path="/post/:postId"
+                element={<SinglePost />}
+              />
               <Route
                 path="/login"
                 element={<Login />}

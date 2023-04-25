@@ -27,28 +27,22 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
-    watchlist: [
-        {
-            type: Array,
-            ref: 'Stocks'
-        }
-    ],
     friends: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Users'
+            ref: 'User'
         }
     ],
     posts: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Posts'
+            ref: 'Post'
         }
     ],
     comments: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Comments'
+            ref: 'Comment'
         }
     ]
 });
