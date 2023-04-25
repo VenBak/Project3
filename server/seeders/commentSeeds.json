@@ -1,0 +1,22 @@
+[
+    {
+        "commentText": "This is seed comment1 on post1",
+        "commentAuthor": "seed comment1 author",
+        "postId": "6446e3175946008d73a958b3"
+    },
+    {
+        "commentText": "This is seed comment2 on post1",
+        "commentAuthor": "seed comment2 author",
+        "postId": "6446e3175946008d73a958b3"
+    },
+    {
+        "commentText": "This is seed comment1 on post2",
+        "commentAuthor": "seed comment1 author",
+        "postId": "6446e3175946008d73a958b4"
+    },
+    {
+        "commentText": "This is seed comment2 on post2",
+        "commentAuthor": "seed comment2 author",
+        "postId": "6446e3175946008d73a958b4"
+    }
+]

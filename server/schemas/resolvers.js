@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
-const Post = require('../models/Post');
+const { User, Post, Comment } = require('../models');
+
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -13,6 +13,9 @@ const resolvers = {
     },
     posts: async () => {
       return Post.find().sort({ createdAt: -1 });
+    },
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
@@ -87,6 +90,29 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
       }
     },
+    createComment: async (parent, { postId, commentText }, context) => {
+      if (context.user) {
+        var commentAuthor = context.user.username;
+        const comment = await Comment.create({ commentText, commentAuthor }).then((comment) => {
+          if (!comment) {
+            throw new AuthenticationError('Comment could not be created!');
+          }
+          console.log(comment);
+          return comment;
+        }
+
+        );
+
+        await Post.findOneAndUpdate(
+          { _id: postId }, //put back when login is working
+          { $push: { comments: comment._id } }
+
+        );
+      }
+      else {
+        throw new AuthenticationError('You need to be logged in!');
+      }
+    }
 
 
 
