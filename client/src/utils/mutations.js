@@ -55,12 +55,6 @@ export const CREATE_POST = gql`
       postText
       postAuthor
       createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
   }
 }
 `;
