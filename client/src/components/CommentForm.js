@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
-import { CREATE_COMMENT } from '../utils/mutations';
+import { ADD_COMMENT } from '../utils/mutations';
 
 const CommentForm = ({ postId }) => {
     const [commentText, setCommentText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
-    const [addComment, { error }] = useMutation(CREATE_COMMENT);
+    const [addComment, { error }] = useMutation(ADD_COMMENT);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -34,7 +34,7 @@ const CommentForm = ({ postId }) => {
 
     return (
         <div>
-            <h4>What are your thoughts on this thought?</h4>
+            <h4>What are your thoughts on this post?</h4>
             <p
                 className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''
                     }`}

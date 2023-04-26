@@ -13,12 +13,11 @@ const typeDefs = gql`
     postText: String
     postAuthor: String
     createdAt: String
-    comments: [Comment]
+    comments: [Comment]!
   }
   type Comment {
     _id: ID
     commentText: String
-    commentAuthor: String
     createdAt: String
   }
   type Auth {
@@ -40,7 +39,7 @@ const typeDefs = gql`
     updateUser(id: ID!, username: String!, email: String!): Auth
     deleteUser(userId: ID!): User
     createPost(postTitle: String!, postText: String!): Post
-    createComment(postId: ID!, commentText: String!): Comment
+    addComment(postId: ID!, commentText: String!): Post
   }
 `;
 

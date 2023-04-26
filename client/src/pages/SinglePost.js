@@ -6,6 +6,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_COMMENT } from "../utils/mutations";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import CommentForm from "../components/CommentForm";
+import CommentList from '../components/CommentList';
 
 
 import Auth from "../utils/auth";
@@ -22,24 +23,24 @@ const SinglePost = () => {
 
   const post = data?.post || {};
 
-  function hasComments() {
-    if (post.comments?.length) {
-      return (
-        <div>
-          {<CommentForm postId={post._id} />}
-          {post.comments.map((comment) => (
-            <div key={comment._id}>
-              <p>{comment.commentText}</p>
-              <p>{comment.commentAuthor}</p>
-              <p>{comment.createdAt}</p>
-            </div>
-          ))}
-        </div>
-      );
-    } else {
-      return <div>No comments yet!</div>;
-    }
-  }
+  // function hasComments() {
+  //   if (post.comments?.length) {
+  //     return (
+  //       <div>
+  //         {<CommentForm postId={post._id} />}
+  //         {post.comments.map((comment) => (
+  //           <div key={comment._id}>
+  //             <p>{comment.commentText}</p>
+  //             <p>{comment.commentAuthor}</p>
+  //             <p>{comment.createdAt}</p>
+  //           </div>
+  //         ))}
+  //       </div>
+  //     );
+  //   } else {
+  //     return <div>No comments yet!</div>;
+  //   }
+  // }
 
 
   if (loading) {
@@ -52,8 +53,6 @@ const SinglePost = () => {
         <div className="stockDetails">
           <h2>Stock Details TBD</h2>
         </div>
-
-
       </div>
       <div className="postContainer">
         <div className="postDetails">
@@ -64,12 +63,15 @@ const SinglePost = () => {
         </div>
         <div className="commentDetails">
           <h2>Comments</h2>
-          <div>
-            {hasComments()}
-          </div>
+            <div>
+              <CommentForm postId={post._id} />
+            </div>
+            <div>
+              <CommentList comments={post.comments} />
+            </div>
         </div>
       </div>
-    </div>)
+    </div >)
 }
 
 export default SinglePost;
