@@ -55,7 +55,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <NavTabs />
+          {/* <NavTabs style={{border: "1px solid black"}}/> */}
       {/* Here we are calling the renderPage method which will return a component 
       {renderPage()} */}
           <div className="container">
