@@ -11,8 +11,8 @@ db.once('open', async () => {
     await User.create(userSeeds);
     await Post.deleteMany({});
     await Post.create(postSeeds);
-    await Comment.deleteMany({});
-    await Comment.create(commentSeeds);
+    // await Comment.deleteMany({});
+    // await Comment.create(commentSeeds);
 
   } catch (err) {
     console.error(err);

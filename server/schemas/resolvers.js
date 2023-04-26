@@ -90,37 +90,18 @@ const resolvers = {
         throw new AuthenticationError('You need to be logged in!');
       }
     },
-    createComment: async (parent, { postId, commentText }, context) => {
-      if (context.user) {
-        var commentAuthor = context.user.username;
-        const comment = await Comment.create({ commentText, commentAuthor }).then((comment) => {
-          if (!comment) {
-            throw new AuthenticationError('Comment could not be created!');
-          }
-          console.log(comment);
-          return comment;
+    addComment: async (parent, { postId, commentText }) => {
+      return Post.findOneAndUpdate(
+        { _id: postId },
+        {
+          $addToSet: { comments: { commentText } },
+        },
+        {
+          new: true,
+          runValidators: true,
         }
-
-        );
-
-        await Post.findOneAndUpdate(
-          { _id: postId }, //put back when login is working
-          { $push: { comments: comment._id } }
-
-        );
-      }
-      else {
-        throw new AuthenticationError('You need to be logged in!');
-      }
-    }
-
-
-
-
+      );
+    },
   },
 };
-
-
-
-
 module.exports = resolvers;
