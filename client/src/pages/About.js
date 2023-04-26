@@ -29,7 +29,7 @@ export default function About() {
                 </a>
                 <a href ="https://github.com/braddahis">
                     <li>
-                       Suvarna
+                        Suvarna
                     </li>
                 </a>
           </ul>

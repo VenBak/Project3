@@ -25,7 +25,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  color: navy;
+  /* color: navy; */
   font-size: 2px;
   color: #282c34;
 }
@@ -44,7 +44,7 @@
   text-decoration: none;
 }
 header {
-  background-color: #002B5B;
+  background-color:  #282c34;
   min-height: 20vh;
   display: flex;
   flex-direction: column;

@@ -67,14 +67,13 @@ const resolvers = {
     },
 
     createPost: async (parent, { postTitle, postText }, context) => {
-      console.log(context.user)
+      console.log(context.user);
       if (context.user) {
         var postAuthor = context.user.username;
         const post = await Post.create({ postTitle, postText, postAuthor }).then((post) => {
           if (!post) {
             throw new AuthenticationError('Post could not be created!');
           }
-          console.log(post);
           return post;
         }
 
