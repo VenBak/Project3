@@ -7,18 +7,18 @@ function NavTabs (){
   return (
     <ul className="nav justify-content-center Tabs">
       <li className="nav-item">
-         <Link className="text-light" to="/home">
-         <h1 className="m-0">Home</h1>
+         <Link className="text-light" style={{textDecoration: "none"}} to="/home">
+         <h3 className="m-0 link">Home</h3>
        </Link>
       </li>
       <li className="nav-item">
-      <Link className="text-light" to="/about">
-          <h1 className="m-0">About</h1>
+      <Link className="text-light"style={{textDecoration: "none"}} to="/about">
+          <h3 className="m-0 link">About</h3>
         </Link>
       </li>
       <li className="nav-item">
-      <Link className="text-light" to="/profile">
-          <h1 className="m-0">Profile</h1>
+      <Link className="text-light"style={{textDecoration: "none"}} to="/profile">
+          <h3 className="m-0 link">Profile</h3>
         </Link>
       </li>
     </ul>

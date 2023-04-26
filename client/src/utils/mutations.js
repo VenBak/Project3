@@ -65,16 +65,34 @@ export const CREATE_POST = gql`
 }
 `;
 
-export const CREATE_COMMENT = gql`
-  mutation createComment($postId: ID!, $commentText: String!) {
-    createComment(postId: $postId, commentText: $commentText) {
+
+export const ADD_COMMENT = gql`
+  mutation addComment($postId: ID!, $commentText: String!) {
+    addComment(postId: $postId, commentText: $commentText) {
       _id
-      commentText
-      commentAuthor
+      postTitle
+      postText
+      postAuthor
       createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
   }
-}
 `;
+
+// export const CREATE_COMMENT = gql`
+//   mutation createComment($postId: ID!, $commentText: String!) {
+//     createComment(postId: $postId, commentText: $commentText) {
+//       _id
+//       commentText
+//       commentAuthor
+//       createdAt
+//   }
+// }
+// `;
 
 
 
