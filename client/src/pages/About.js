@@ -14,22 +14,22 @@ export default function About() {
           <ul style={{listStyleType: "none", width: "30vw", margin: "0 auto", display: "flex", justifyContent: "space-around"}}>
           <a href ="https://github.com/braddahis">
                     <li>
-                        Alexander
+                        Alexander Nunez
                     </li>
                 </a>
-                <a href ="https://github.com/braddahis">
+                <a href ="https://github.com/VenBak">
                     <li>
-                        Andre
+                        Andre Brahin
                     </li>
                 </a>
-                <a href ="https://github.com/braddahis">
+                <a href ="https://github.com/bpmcdonell/">
                     <li>
-                        Brian
+                        Brian McDonell
                     </li>
                 </a>
-                <a href ="https://github.com/braddahis">
+                <a href ="https://github.com/suvarna28">
                     <li>
-                        Suvarna
+                       Suvarna Jadhav
                     </li>
                 </a>
           </ul>
