@@ -20,7 +20,6 @@
 }
 .Tabs {
   /* background-color: grey; */
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,12 +44,13 @@
   text-decoration: none;
 }
 header {
-  background-color: #282c34;
+  background-color: #002B5B;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Anton', Monospace;
+  /* /* align-items: center; */
+  justify-content: center; 
   font-size: calc(10px + 2vmin);
   color: white;
 }
