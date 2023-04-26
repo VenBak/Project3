@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import NavTabs from './NavTabs'
 import Auth from '../utils/auth';
 
 const Header = () => {
@@ -12,8 +12,9 @@ const Header = () => {
 
     return (
         <header className= "header">
-          <h1>The Visible Hand</h1>
-            <div className="container flex-row justify-space-between-lg justify-center align-center">
+            <div className="flex-row justify-space-between-lg justify-center align-center" style={{width:"95vw"}}>
+            <h1>The Visible Hand</h1>
+                <NavTabs/>
                 <div>
                     {Auth.loggedIn() ? (
                         <>
