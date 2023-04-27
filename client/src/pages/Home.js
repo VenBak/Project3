@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/queries';
 import CreateComment from './createComment';
 import { Link } from 'react-router-dom';
+
 export default function Home() {
 
   const { loading, data } = useQuery(QUERY_POSTS);
