@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <header className= "header">
             <div className="flex-row justify-space-between-lg justify-center align-center" style={{width:"95vw"}}>
-            <h1>The Visible Hand</h1>
+            <h1 className='vis'>The Visible Hand</h1>
                 <NavTabs/>
                 <div>
                     {Auth.loggedIn() ? (
