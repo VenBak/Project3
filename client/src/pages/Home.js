@@ -43,7 +43,7 @@ export default function Home() {
 
   ]
   return (
-    <div>
+    <div className='home'>
       <h1 style={{textAlign: "center"}}>Stock Forum</h1>
       {loading ? (
         <div>Loading...</div>

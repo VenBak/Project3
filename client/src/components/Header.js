@@ -12,12 +12,12 @@ const Header = () => {
 
     return (
         <header className= "header">
-            <div className="flex-row justify-space-between-lg justify-center align-center" style={{width:"95vw"}}>
+            <div className="flex-row justify-space-between-lg justify-center align-center" style={{width:"95vw", display: "flex"}}>
             <h1 className='vis'>The Visible Hand</h1>
                 <NavTabs/>
                 <div>
                     {Auth.loggedIn() ? (
-                        <>
+                        <div className='main'>
                             <span style={{fontSize: "20px"}}>Hey there, {Auth.getProfile().data.username}!</span>
                             <button className="btn btn-lg btn-light m-2" onClick={logout}>
                                 Logout
@@ -29,7 +29,7 @@ const Header = () => {
                                 Create Post
                             </Link>
 
-                        </>
+                        </div>
                     ) : (
                         <>
                             

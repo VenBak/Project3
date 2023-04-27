@@ -32,11 +32,12 @@
 .Tabs li {
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 10px;
+  font-size: 4px;
   padding: 1em;
   border: 1px solid white;
   border-radius: 0.5rem;
 }
+
 .link:hover {
   color: #1bbc9b
 }
@@ -74,6 +75,9 @@ footer h1 {
 }
 footer h2 {
   font-size: 10px;
+}
+.home h1 {
+  color: #1bbc9b
 }
 .idea {
   position: sticky;
