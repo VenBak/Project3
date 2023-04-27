@@ -45,7 +45,7 @@
 }
 header {
   background-color:  #282c34;
-  min-height: 20vh;
+  min-height: 13vh;
   display: flex;
   flex-direction: column;
   font-family: 'Anton', Monospace;
@@ -54,8 +54,11 @@ header {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.vis {
+  color: #1bbc9b
+}
 footer {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   bottom: 0;
