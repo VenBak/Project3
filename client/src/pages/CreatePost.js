@@ -70,7 +70,7 @@ const CreatePost = () => {
                                     value={formState.postText}
                                     onChange={handleChange}
                                 />
-                                {/* <div id="start">
+                                <div id="start">
                                     <p>Enter the name of a company to find its stock symbol:</p>
                                         <label htmlFor="company">Company:</label>
                                         <input type="text" id="companyName" name="company" />
@@ -86,7 +86,7 @@ const CreatePost = () => {
                                         </button>
                                     <div id="results"></div>
                                     <ul id="stockSymbols"></ul>
-                                </div> */}
+                                </div>
 
                             <div id="results"></div>
                                 <button
