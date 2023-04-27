@@ -11,9 +11,9 @@ const CommentList = ({ comments = [] }) => {
             <div>
                 {comments &&
                     comments.map((comment) => (
-                        <div key={comment._id}>
+                        <div key={comment._id} style={{border:"1px solid black", gap: "20px", flexDirection: "column"}}>
                             <div>
-                                <h5>
+                                <h5 style={{display: "flex", justifyContent: "right", fontSize:"15px"}}>
                                     { comment.commentAuthor}
                                     <span>
                                         on {comment.createdAt}

@@ -46,7 +46,7 @@ const CommentForm = ({ postId }) => {
                 className="flex-row justify-center justify-space-between-md align-center"
                 onSubmit={handleFormSubmit}
             >
-                <div className="col-12 col-lg-9">
+                <div>
                     <textarea
                         name="commentText"
                         placeholder="Add your comment..."
@@ -57,7 +57,7 @@ const CommentForm = ({ postId }) => {
                     ></textarea>
                 </div>
 
-                <div className="col-12 col-lg-3">
+                <div>
                     <button className="btn btn-primary btn-block py-3" type="submit">
                         Add Comment
                     </button>

@@ -66,11 +66,14 @@ footer {
   color: white;
   width: 100%;
 }
+.postDetails h2 {
+  color: #1bbc9b
+}
 footer h1 {
-  font-size: 20px;
+  font-size: 10px;
 }
 footer h2 {
-  font-size: 20px;
+  font-size: 10px;
 }
 .idea {
   position: sticky;

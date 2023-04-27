@@ -55,11 +55,11 @@ const SinglePost = () => {
         </div>
       </div>
       <div className="postContainer">
-        <div className="postDetails">
-          <h2>{post.postTitle}</h2>
-          <p>{post.postText}</p>
-          <p>{post.postAuthor}</p>
-          <p>{post.createdAt}</p>
+        <div className="postDetails" style={{width: "100%", gap: "10%"}}>
+          <h2 style={{textAlign:"center"}}>{post.postTitle}</h2>
+          <p style={{textAlign:"center"}}>{post.postText}</p>
+          <p style={{textAlign:"right", fontSize:"15px"}}>{post.postAuthor}{post.createdAt}</p>
+          {/* <p style={{textAlign:"right", fontSize:"15px"}}>{post.createdAt}</p> */}
         </div>
         <div className="commentDetails">
           <h2>Comments</h2>

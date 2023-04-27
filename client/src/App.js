@@ -88,10 +88,10 @@ function App() {
                 path="/about" 
                 element={<About/>} 
               />
-              <Route 
+              {/* <Route 
                 path="/profile" 
                 element={<Profile />} 
-              />
+              /> */}
             </Routes>
           </div>
           <Footer />
