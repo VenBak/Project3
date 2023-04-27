@@ -32,11 +32,28 @@
 .Tabs li {
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 10px;
+  font-size: 4px;
   padding: 1em;
   border: 1px solid white;
   border-radius: 0.5rem;
 }
+button.red {
+  background-color: #282c34;
+}
+.header .red {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 15px;
+  padding: 1em;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+.red:hover {
+  color: #1bbc9b
+}
+
 .link:hover {
   color: #1bbc9b
 }
@@ -66,11 +83,17 @@ footer {
   color: white;
   width: 100%;
 }
+.postDetails h2 {
+  color: #1bbc9b
+}
 footer h1 {
-  font-size: 20px;
+  font-size: 10px;
 }
 footer h2 {
-  font-size: 20px;
+  font-size: 10px;
+}
+.home h1 {
+  color: #1bbc9b
 }
 .idea {
   position: sticky;
