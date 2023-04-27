@@ -17,15 +17,15 @@ const Header = () => {
                 <NavTabs/>
                 <div>
                     {Auth.loggedIn() ? (
-                        <div className='main'>
+                        <div>
                             <span style={{fontSize: "20px"}}>Hey there, {Auth.getProfile().data.username}!</span>
-                            <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                            <button className="red" onClick={logout}>
                                 Logout
                             </button>
-                            <Link className="btn btn-lg btn-info m-2" to="/update">
+                            <Link className="red" to="/update">
                                 Update
                             </Link>
-                            <Link className="btn btn-lg btn-info m-2" to="/createpost">
+                            <Link className="red" c to="/createpost">
                                 Create Post
                             </Link>
 
@@ -33,10 +33,10 @@ const Header = () => {
                     ) : (
                         <>
                             
-                            <Link className="btn btn-lg btn-light m-2" to="/login">
+                            <Link className="red" to="/login">
                                 Login
                             </Link>
-                            <Link className="btn btn-lg btn-light m-2" to="/signup">
+                            <Link className="red" to="/signup">
                                 Signup
                             </Link>
                         </>
