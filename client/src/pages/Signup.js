@@ -18,7 +18,7 @@ const Signup = () => {
 
   const handleClose = () => { 
     setHandleShow(false);
-    window.location.assign('/');
+    window.location.assign('/home');
   }
 
   const handleChange = (event) => {

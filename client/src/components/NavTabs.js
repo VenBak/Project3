@@ -7,9 +7,9 @@ function NavTabs (){
   return (
     <ul className="nav justify-content-center Tabs">
       <li className="nav-item">
-         <Link className="text-light" style={{textDecoration: "none"}} to="/home">
-         <h3 className="m-0 link">Home</h3>
-       </Link>
+        <Link className="text-light" style={{textDecoration: "none"}} to="/home">
+          <h3 className="m-0 link">Home</h3>
+        </Link>
       </li>
       <li className="nav-item">
       <Link className="text-light"style={{textDecoration: "none"}} to="/about">

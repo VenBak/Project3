@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/queries';
 import CreateComment from './createComment';
 import { Link } from 'react-router-dom';
+
 export default function Home() {
 
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -14,22 +15,22 @@ export default function Home() {
   const stocks = [
     {
       id: 1, title: "Post One",
-      image: StockPhoto,
+      // image: StockPhoto,
       website: ""
     },
     {
       id: 2, title: "Post two",
-      image: StockPhoto,
+      // image: StockPhoto,
       website: ""
     },
     {
       id: 3, title: "Post three",
-      image: StockPhoto,
+      // image: StockPhoto,
       website: ""
     },
     {
       id: 4, title: "Post four",
-      image: StockPhoto,
+      // image: StockPhoto,
       website: "",
     },
 
@@ -43,15 +44,15 @@ export default function Home() {
   ]
   return (
     <div>
-      <h1>Stock Forum</h1>
+      <h1 style={{textAlign: "center"}}>Stock Forum</h1>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div style={{ display: "flex", justifyContent: "center" }}> {
+        <div style={{ display: "flex", justifyContent: "center", flexDirection: "column"}}> {
           posts.map(post => {
             return (
-              <Card key={post.id} style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={stocks[1].image} />
+              <Card key={post.id}>
+                {/* <Card.Img variant="top" src={stocks[1].image} /> */}
                 <Card.Body>
                   <Card.Title>{post.postTitle}</Card.Title>
                   <Card.Text>

@@ -30,9 +30,9 @@ const CreatePost = () => {
         if (Auth.loggedIn()) {
             try {
                 const { data } = await createPost({
-                    variables: { ...formState, postAuthor: Auth.getProfile().data.username },
+                    variables: { ...formState },
                 });
-                console.log(data)
+                console.log("$$$$$$$$$$$$$$$$$$$$$$$$" + data);
             } catch (e) {
                 console.error(e);
             }
@@ -50,7 +50,7 @@ const CreatePost = () => {
                         {data ? (
                             <p>
                                 Success! You may now head{" "}
-                                <Link to="/">back to the homepage.</Link>
+                                <Link to="/home">back to the homepage.</Link>
                             </p>
                         ) : (
                             <form onSubmit={handleFormSubmit}>
@@ -73,22 +73,22 @@ const CreatePost = () => {
                                 <div id="start">
                                     <p>Enter the name of a company to find its stock symbol:</p>
                                         <label htmlFor="company">Company:</label>
-                                        <input type="text" id="companyName" name="company" />
+                                        <input type="text" id="companyName" name="company" class="form-control"/>
                                         <label htmlFor="duration">Select period:</label>
-                                        <select id="duration" name="duration">
+
+                                    <select id="duration" name="duration" class="form-select" aria-label="Default select example">
                                         <option value="1min">1 min</option>
                                         <option value="1day">1 day</option>
                                         <option value="1week">1 week</option>
                                         <option value="1month">1 month</option>
-                                        </select>
-                                        <button type="button" onClick={findStockSymbol}>
+                                    </select>
+                                        <button type="button" class="btn btn-primary" onClick={findStockSymbol}>
                                         Search
                                         </button>
                                     <div id="results"></div>
                                     <ul id="stockSymbols"></ul>
+                                    <canvas id="myChart"></canvas>
                                 </div>
-
-                            <div id="results"></div>
                                 <button
                                     className="btn d-block w-100"
                                     style={{ cursor: "pointer" }}
