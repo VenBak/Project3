@@ -40,6 +40,7 @@ const typeDefs = gql`
     deleteUser(userId: ID!): User
     createPost(postTitle: String!, postText: String!): Post
     addComment(postId: ID!, commentText: String!): Post
+    deletePost(postId: ID!): Post
   }
 `;
 
