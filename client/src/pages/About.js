@@ -29,7 +29,7 @@ export default function About() {
                 </a>
                 <a href ="https://github.com/suvarna28">
                     <li>
-                       Suvarna Jadhav
+                        Suvarna Jadhav
                     </li>
                 </a>
           </ul>

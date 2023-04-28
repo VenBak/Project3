@@ -16,11 +16,6 @@ function NavTabs (){
           <h3 style={{fontSize: "15px"}} className="m-0 link">About</h3>
         </Link>
       </li>
-      {/* <li className="nav-item">
-      <Link className="text-light"style={{textDecoration: "none"}} to="/profile">
-          <h3 className="m-0 link">Profile</h3>
-        </Link>
-      </li> */}
     </ul>
   );
 }

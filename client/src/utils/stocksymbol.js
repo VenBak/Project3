@@ -1,7 +1,7 @@
 import axios from "axios";
 import Chart from 'chart.js/auto';
 
-const apiKey = ""; 
+const apiKey = "GKTGIFALGB6P7WP1"; 
 
 function findStockSymbol() {
   const companyName = document.getElementById("companyName").value.trim();
