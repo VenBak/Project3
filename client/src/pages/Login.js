@@ -63,7 +63,6 @@ const Login = () => {
               <Form.Control
                 type='text'
                 name="email"
-                placeholder='email' 
                 onChange={handleChange}
                 autoFocus
                 value={formState.email}

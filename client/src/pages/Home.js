@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/queries';
 import CreateComment from './createComment';
 import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
 
 export default function Home() {
 
@@ -43,7 +44,7 @@ export default function Home() {
 
   ]
   return (
-    <div>
+    <div className='home'>
       <h1 style={{textAlign: "center"}}>Stock Forum</h1>
       {loading ? (
         <div>Loading...</div>
@@ -59,13 +60,12 @@ export default function Home() {
                     {post.postText}
                     {post.postAuthor}
                   </Card.Text>
-                  <Link
-                    className="btn btn-primary btn-block btn-squared"
-                    to={`/post/${post._id}`}
-                  >
-                    Join the discussion on this post.
-                  </Link>
-
+                    <Link
+                      className="btn btn-primary btn-block btn-squared"
+                    to={Auth.loggedIn() ? (`/post/${post._id}`) : (`/login`)}
+                    >
+                      Join the discussion on this post.
+                    </Link>
                 </Card.Body>
               </Card>
             )
