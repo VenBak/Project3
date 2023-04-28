@@ -1,4 +1,5 @@
 module.exports = dateFormat = (date) => {
-    return new Date(date).toLocaleDateString();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleString('en-US', options);
+    return formattedDate;
 }
-

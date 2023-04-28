@@ -17,31 +17,10 @@ const SinglePost = () => {
   console.log(postId)
 
   const { loading, data } = useQuery(QUERY_SINGLE_POST, {
-    // Pass the `thoughtId` URL parameter into query to retrieve this thought's data
     variables: { postId: postId },
   });
 
   const post = data?.post || {};
-
-  // function hasComments() {
-  //   if (post.comments?.length) {
-  //     return (
-  //       <div>
-  //         {<CommentForm postId={post._id} />}
-  //         {post.comments.map((comment) => (
-  //           <div key={comment._id}>
-  //             <p>{comment.commentText}</p>
-  //             <p>{comment.commentAuthor}</p>
-  //             <p>{comment.createdAt}</p>
-  //           </div>
-  //         ))}
-  //       </div>
-  //     );
-  //   } else {
-  //     return <div>No comments yet!</div>;
-  //   }
-  // }
-
 
   if (loading) {
     return <div>Loading...</div>;
@@ -55,14 +34,13 @@ const SinglePost = () => {
         </div>
       </div>
       <div className="postContainer">
-        <div className="postDetails" style={{width: "100%", gap: "10%"}}>
-          <h2 style={{textAlign:"center"}}>{post.postTitle}</h2>
-          <p style={{textAlign:"center"}}>{post.postText}</p>
-          <p style={{textAlign:"right", fontSize:"15px"}}>{post.postAuthor} {post.createdAt}</p>
-          {/* <p style={{textAlign:"right", fontSize:"15px"}}>{post.createdAt}</p> */}
+        <div className="postDetails">
+          <h2><b>{post.postTitle}</b></h2>
+          <p>{post.createdAt} by {post.postAuthor}</p>
+          <p>{post.postText}</p>
         </div>
         <div className="commentDetails">
-          <h2>Comments</h2>
+          <h2><b>Comments</b></h2>
             <div>
               <CommentForm postId={post._id} />
             </div>

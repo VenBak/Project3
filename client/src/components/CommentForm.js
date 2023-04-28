@@ -52,11 +52,10 @@ const CommentForm = ({ postId }) => {
                         placeholder="Add your comment..."
                         value={commentText}
                         className="form-input w-100"
-                        style={{ lineHeight: '1.5' }}
+                        rows="3" cols="30"
                         onChange={handleChange}
-                    ></textarea>
+                    />
                 </div>
-
                 <div>
                     <button className="btn btn-primary btn-block py-3" type="submit">
                         Add Comment

@@ -19,13 +19,11 @@
   width: 20%;
 }
 .Tabs {
-  /* background-color: grey; */
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  /* color: navy; */
   font-size: 2px;
   color: #282c34;
 }
@@ -66,7 +64,6 @@ header {
   display: flex;
   flex-direction: column;
   font-family: 'Anton', Monospace;
-  /* /* align-items: center; */
   justify-content: center; 
   font-size: calc(10px + 2vmin);
   color: white;
@@ -79,18 +76,63 @@ footer {
   display: flex;
   justify-content: center;
   bottom: 0;
-  background-color:  #282c34;
+  background-color: #282c34;
   color: white;
   width: 100%;
+}
+.singlePostPageContainer {
+  padding-top: 50px;
+  font-size: 18px;
+  font-family: 'Kanit', sans-serif;
+}
+.stockContainer, .postContainer {
+  border: 1px solid #282c34;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.stockDetails, .postDetails {
+  width: "100%"; 
+  gap: "10%";
+  text-align: "left";
+}
+.commentDetails {
+  text-align: left;
+  width: "100%";
+  gap: "10%";
+}
+.commentDetails h2 {
+  color: #1bbc9b
 }
 .postDetails h2 {
   color: #1bbc9b
 }
+.stockDetails h2 {
+  color: #1bbc9b
+}
+.commentList {
+  position: relative;
+  overflow: scroll;
+  width: 530px;
+  height: 650px;
+  padding: 2px;
+}
+.singleComment {
+  display: "flex";
+  flex-Direction: "column";
+  justify-Content: "left";
+  font-size: "10px";
+  padding: 7px;
+  font-style: italic;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+} 
 footer h1 {
-  font-size: 10px;
+  font-size: 15px;
 }
 footer h2 {
-  font-size: 10px;
+  font-size: 15px;
 }
 .home h1 {
   color: #1bbc9b
