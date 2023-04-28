@@ -1,6 +1,7 @@
 import axios from "axios";
 import Chart from 'chart.js/auto';
 
+
 function findStockSymbol(apiKey) {
   const companyName = document.getElementById("companyName").value.trim();
   if (companyName === "") {
