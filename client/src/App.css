@@ -90,6 +90,14 @@ footer h2 {
   font-size: 30px;
 }
 
+.postcard {
+  padding-top: 100px;
+}
+
+#results {
+  padding-top: 10px;
+}
+
 .App-link {
   color: #61dafb ;
 }

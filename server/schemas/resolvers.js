@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post, Comment } = require('../models');
+const { User, Post } = require('../models');
+const bcrypt = require('bcrypt');
 
 const { signToken } = require('../utils/auth');
 
@@ -52,10 +53,12 @@ const resolvers = {
       return { token, user };
     },
 
-    updateUser: async (parent, { id, username, email }) => {
+    updateUser: async (parent, { id, username, email, password }) => {
+      const saltRounds = 10;
+      password = await bcrypt.hash(password, saltRounds);
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { username, email },
+        { username, email, password },
         { new: true }
       );
       const token = signToken(user);

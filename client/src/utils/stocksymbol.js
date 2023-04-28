@@ -174,8 +174,6 @@ function minuteFetch(symbol) {
     .catch(error => console.log(error));
 }
 
-
-
 function dayFetch(symbol) {
 const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&apikey=${apiKey}`;
 fetch(apiUrl)
