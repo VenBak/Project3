@@ -8,6 +8,10 @@ import { findStockSymbol } from "../utils/stocksymbol";
 import Auth from "../utils/auth";
 
 const CreatePost = () => {
+    
+    const apiKey = `${process.env.REACT_APP_API_KEY}`
+
+
     const [formState, setFormState] = useState({
         postTitle: '',
         postText: '',
@@ -85,7 +89,7 @@ const CreatePost = () => {
                                         <option value="1month">1 month</option>
                                     </select>
                                     <br />
-                                    <button type="button" class="btn btn-primary" onClick={findStockSymbol}>
+                                    <button type="button" class="btn btn-primary" onClick={() => findStockSymbol(apiKey)}>
                                         Search
                                     </button>
                                     <br />
