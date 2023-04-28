@@ -25,14 +25,14 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation updateUser($updateUserId: ID!, $username: String!, $email: String!) {
-    updateUser(id: $updateUserId, username: $username, email: $email) {
+  mutation updateUser($updateUserId: ID!, $username: String!, $email: String!, $password: String!) {
+    updateUser(id: $updateUserId, username: $username, email: $email, password: $password) {
       token
       user {
         _id
         username
-        password
         email
+        password
       }
     }
 }

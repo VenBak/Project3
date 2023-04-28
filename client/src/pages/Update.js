@@ -9,7 +9,8 @@ import Auth from '../utils/auth';
 const Update = () => {
     const [formState, setFormState] = useState({
         username: Auth.getProfile().data.username,
-        email: Auth.getProfile().data.email
+        email: Auth.getProfile().data.email, 
+        password: Auth.getProfile().data.password
     });
     const [updateUser, { error, data }] = useMutation(UPDATE_USER);
 
@@ -36,11 +37,10 @@ const Update = () => {
 
         try {
             const { data } = await updateUser({
-                variables: { updateUserId: Auth.getProfile().data._id, username: formState.username, email: formState.email }
+                variables: { updateUserId: Auth.getProfile().data._id, username: formState.username, email: formState.email, password: formState.password }
             });
-
             Auth.updateUser(data.updateUser.token);
-
+            window.location.assign('/');
         } catch (e) {
             console.error(e);
         }
@@ -93,6 +93,15 @@ const Update = () => {
                                 onChange={handleChange}
                                 autoFocus
                                 value={formState.email}
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                placeholder='*******'
+                                name='password'
+                                value={formState.password}
+                                onChange={handleChange}
                             />
                         </Form.Group>
                     </Form>
