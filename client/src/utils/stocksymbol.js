@@ -1,10 +1,7 @@
 import axios from "axios";
 import Chart from 'chart.js/auto';
 
-
-const apiKey = "ME2E70D0E3N4FKCG"; // put api key here
-
-function findStockSymbol() {
+function findStockSymbol(apiKey) {
   const companyName = document.getElementById("companyName").value.trim();
   if (companyName === "") {
     alert("Please enter a company name.");
@@ -44,7 +41,7 @@ function findStockSymbol() {
               selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
-              minuteFetch(stockSymbols[index]["1. symbol"])
+              minuteFetch(stockSymbols[index]["1. symbol"], apiKey)
             } else if (selectedDuration == "1day") {
                             
               stockSymbolList.textContent = ""
@@ -53,7 +50,7 @@ function findStockSymbol() {
               selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
-              dayFetch(stockSymbols[index]["1. symbol"])
+              dayFetch(stockSymbols[index]["1. symbol"], apiKey)
 
             } else if (selectedDuration == "1week") {
 
@@ -63,7 +60,7 @@ function findStockSymbol() {
               selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
-              weeklyFetch(stockSymbols[index]["1. symbol"])
+              weeklyFetch(stockSymbols[index]["1. symbol"], apiKey)
 
             } else if (selectedDuration == "1month") {
               
@@ -73,7 +70,7 @@ function findStockSymbol() {
               selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
-              monthlyFetch(stockSymbols[index]["1. symbol"])
+              monthlyFetch(stockSymbols[index]["1. symbol"], apiKey)
 
             }
           })
@@ -89,7 +86,7 @@ function findStockSymbol() {
     });
 }
 
-function minuteFetch(symbol) {
+function minuteFetch(symbol, apiKey) {
   const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=1min&outputsize=full&apikey=${apiKey}`;
 
   fetch(apiUrl)
@@ -175,7 +172,7 @@ function minuteFetch(symbol) {
     .catch(error => console.log(error));
 }
 
-function dayFetch(symbol) {
+function dayFetch(symbol, apiKey) {
 const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&apikey=${apiKey}`;
 fetch(apiUrl)
     .then(response => response.json())
@@ -260,7 +257,7 @@ fetch(apiUrl)
     .catch(error => console.log(error));
 }
 
-function weeklyFetch(symbol) {
+function weeklyFetch(symbol, apiKey) {
 const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${symbol}&outputsize=full&apikey=${apiKey}`;
 fetch(apiUrl)
     .then(response => response.json())
@@ -345,7 +342,7 @@ fetch(apiUrl)
     .catch(error => console.log(error));
 }
 
-function monthlyFetch(symbol) {
+function monthlyFetch(symbol, apiKey) {
 const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${symbol}&outputsize=full&apikey=${apiKey}`;
 fetch(apiUrl)
     .then(response => response.json())
