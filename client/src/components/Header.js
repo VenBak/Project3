@@ -7,6 +7,7 @@ const Header = () => {
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();
+        window.location.assign('/');
     };
 
 

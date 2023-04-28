@@ -60,7 +60,6 @@ const Signup = () => {
             <Form.Control
               type='text'
               name='username'
-              placeholder='username' 
               onChange={handleChange}
               autoFocus
               value={formState.username}
@@ -71,7 +70,6 @@ const Signup = () => {
             <Form.Control
               type='text'
               name='email'
-              placeholder='email' 
               onChange={handleChange}
               autoFocus
               value={formState.email}
