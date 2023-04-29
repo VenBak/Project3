@@ -8,6 +8,10 @@ import { findStockSymbol } from "../utils/stocksymbol";
 import Auth from "../utils/auth";
 
 const CreatePost = () => {
+    
+    const apiKey = `${process.env.REACT_APP_API_KEY}`
+
+
     const [formState, setFormState] = useState({
         postTitle: '',
         postText: '',
@@ -32,7 +36,6 @@ const CreatePost = () => {
                 const { data } = await createPost({
                     variables: { ...formState },
                 });
-                console.log("$$$$$$$$$$$$$$$$$$$$$$$$" + data);
             } catch (e) {
                 console.error(e);
             }
@@ -43,7 +46,7 @@ const CreatePost = () => {
 
     return (
         <main className="flex-row justify-center mb-4">
-            <div className="col-12 col-lg-10">
+            <div className="postcard col-12 col-lg-10">
                 <div className="card">
                     <h4 className="card-header bg-dark text-light p-2">Create Post</h4>
                     <div className="card-body">
@@ -53,49 +56,55 @@ const CreatePost = () => {
                                 <Link to="/home">back to the homepage.</Link>
                             </p>
                         ) : (
-                            <form onSubmit={handleFormSubmit}>
-                                <input
-                                    className="form-input"
-                                    placeholder="Your post title"
-                                    name="postTitle"
-                                    type="text"
-                                    value={formState.postTitle}
-                                    onChange={handleChange}
-                                />
-                                <input
-                                    className="form-input"
-                                    placeholder="Your post text"
-                                    name="postText"
-                                    type="text"
-                                    value={formState.postText}
-                                    onChange={handleChange}
-                                />
-                                <div id="start">
-                                    <p>Enter the name of a company to find its stock symbol:</p>
-                                        <label htmlFor="company">Company:</label>
-                                        <input type="text" id="companyName" name="company" class="form-control"/>
-                                        <label htmlFor="duration">Select period:</label>
-
+                                <form onSubmit={handleFormSubmit}>
+                                    <label htmlFor="company">Post Title:</label> 
+                                    <input
+                                        className="form-input"
+                                        name="postTitle"
+                                        type="text"
+                                        value={formState.postTitle}
+                                        onChange={handleChange}
+                                        />
+                                    <label htmlFor="company">Post Text:</label> 
+                                    <textarea
+                                        name="postText"
+                                        value={formState.postText}
+                                        className="form-input w-100"
+                                        style={{ lineHeight: '1.5' }}
+                                        onChange={handleChange}
+                                    />
+                                    <label htmlFor="company">Enter the name of a company to find its stock symbol:</label> 
+                                    <input
+                                        className="form-input"
+                                        type="text"
+                                        id="companyName"
+                                        name="company"
+                                    />
+                                    <label htmlFor="duration">Select period:</label>
+                                    <br />
                                     <select id="duration" name="duration" class="form-select" aria-label="Default select example">
                                         <option value="1min">1 min</option>
                                         <option value="1day">1 day</option>
                                         <option value="1week">1 week</option>
                                         <option value="1month">1 month</option>
                                     </select>
-                                        <button type="button" class="btn btn-primary" onClick={findStockSymbol}>
+                                    <br />
+                                    <button type="button" class="btn btn-primary" onClick={() => findStockSymbol(apiKey)}>
                                         Search
-                                        </button>
-                                    <div id="results"></div>
-                                    <ul id="stockSymbols"></ul>
-                                    <canvas id="myChart"></canvas>
-                                </div>
-                                <button
-                                    className="btn d-block w-100"
+                                    </button>
+                                    <br />
+                                        <div id="results"></div>
+                                        <ul id="stockSymbols"></ul>
+                                        <canvas id="myChart"></canvas>
+                                    <br/>
+                                    <button
+                                    className="btn btn-primary btn-block"
                                     style={{ cursor: "pointer" }}
                                     type="submit"
                                 >
                                     Submit
-                                </button>
+                                    </button>
+                                    <br/>
                             </form>
                         )}
                         {error && (

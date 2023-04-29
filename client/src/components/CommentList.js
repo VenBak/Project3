@@ -8,21 +8,15 @@ const CommentList = ({ comments = [] }) => {
 
     return (
         <>
-            <div>
-                {comments &&
-                    comments.map((comment) => (
-                        <div key={comment._id}>
-                            <div>
-                                <h5>
-                                    { comment.commentAuthor}
-                                    <span>
-                                        on {comment.createdAt}
-                                    </span>
-                                </h5>
-                                <p className="card-body">{comment.commentText}</p>
-                            </div>
+            <div className="commentList">
+                {comments && comments.map((comment) => (
+                    <div key={comment._id}>
+                        <div className="singleComment">
+                            <p>{comment.commentText}</p>
+                            <p>{comment.createdAt}</p>
                         </div>
-                    ))}
+                    </div>
+                ))}
             </div>
         </>
     );

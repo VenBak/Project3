@@ -34,7 +34,6 @@ input {
 
 button,
 input {
-  /* 1 */
   overflow: visible;
 }
 
