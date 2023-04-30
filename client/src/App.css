@@ -74,6 +74,7 @@ header {
 footer {
   position: fixed;
   display: flex;
+  padding-top: 7px;
   justify-content: center;
   bottom: 0;
   background-color: #282c34;
@@ -81,11 +82,22 @@ footer {
   width: 100%;
 }
 .singlePostPageContainer {
+  width: 100%;
   padding-top: 50px;
   font-size: 18px;
   font-family: 'Kanit', sans-serif;
 }
+.stockContainer {
+  float: left;
+  width: 45%;
+}
+.postContainer {
+  float: right;
+  width: 45%;
+}
 .stockContainer, .postContainer {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #282c34;
   border-radius: 10px;
   padding: 30px;
@@ -114,7 +126,7 @@ footer {
   position: relative;
   overflow: scroll;
   width: 530px;
-  height: 650px;
+  height: 530px;
   padding: 2px;
 }
 .singleComment {
@@ -134,6 +146,9 @@ footer h1 {
 footer h2 {
   font-size: 15px;
 }
+.home {
+  padding-top: 20px;
+}
 .home h1 {
   color: #1bbc9b
 }
@@ -145,6 +160,7 @@ footer h2 {
   flex-direction: column;
   justify-content: center;
   bottom: 0;
+  padding-top: 100px;
   background-color: white;
   width: 100%;
 }

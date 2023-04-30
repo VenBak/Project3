@@ -13,7 +13,7 @@ const CommentList = ({ comments = [] }) => {
                     <div key={comment._id}>
                         <div className="singleComment">
                             <p>{comment.commentText}</p>
-                            <p>{comment.createdAt}</p>
+                            <p>{comment.createdAt} by anonymous</p>
                         </div>
                     </div>
                 ))}
