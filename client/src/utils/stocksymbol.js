@@ -27,7 +27,7 @@ function findStockSymbol(apiKey) {
 
         for (let index = 0; index < 2 ; index++) {
           const btn = document.createElement("btn");
-          btn.setAttribute("class", `btn btn-secondary symbolresult`)
+          btn.setAttribute("class", `btn btn-primary symbolresult me-3`)
           btn.setAttribute("type", "button")
           btn.textContent = `[${stockSymbols[index]["1. symbol"]}] ${stockSymbols[index]["2. name"]} `
 
@@ -40,7 +40,7 @@ function findStockSymbol(apiKey) {
               stockSymbolList.textContent = ""
 
               const selectedSymbol = document.createElement("btn");
-              selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
+              selectedSymbol.setAttribute('class', 'symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
               minuteFetch(stockSymbols[index]["1. symbol"], apiKey)
@@ -49,7 +49,7 @@ function findStockSymbol(apiKey) {
               stockSymbolList.textContent = ""
 
               const selectedSymbol = document.createElement("btn");
-              selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
+              selectedSymbol.setAttribute('class', 'symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
               dayFetch(stockSymbols[index]["1. symbol"], apiKey)
@@ -59,7 +59,7 @@ function findStockSymbol(apiKey) {
               stockSymbolList.textContent = ""
 
               const selectedSymbol = document.createElement("btn");
-              selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
+              selectedSymbol.setAttribute('class', 'symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
               weeklyFetch(stockSymbols[index]["1. symbol"], apiKey)
@@ -69,7 +69,7 @@ function findStockSymbol(apiKey) {
               stockSymbolList.textContent = ""
 
               const selectedSymbol = document.createElement("btn");
-              selectedSymbol.setAttribute('class', 'btn btn-success symbolresult')
+              selectedSymbol.setAttribute('class', 'symbolresult')
               selectedSymbol.textContent = `Selected Symbol: ${stockSymbols[index]["1. symbol"]}`
               stockSymbolList.appendChild(selectedSymbol);
               monthlyFetch(stockSymbols[index]["1. symbol"], apiKey)

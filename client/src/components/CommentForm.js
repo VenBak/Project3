@@ -57,7 +57,7 @@ const CommentForm = ({ postId }) => {
                     />
                 </div>
                 <div>
-                    <button className="btn btn-primary btn-block py-3" type="submit">
+                    <button className="btn btn-primary btn-block py-3 float-left" type="submit">
                         Add Comment
                     </button>
                 </div>
