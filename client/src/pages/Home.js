@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import StockPhoto from '../images/StockPhoto.png';
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/queries';
 import { Link } from 'react-router-dom';
@@ -29,7 +28,7 @@ export default function Home() {
                     {post.postAuthor}
                   </Card.Text>
                     <Link
-                      className="btn btn-primary btn-block btn-squared"
+                      className="btn btn-primary btn-block"
                     to={Auth.loggedIn() ? (`/post/${post._id}`) : (`/login`)}
                     >
                       Join the discussion on this post.
