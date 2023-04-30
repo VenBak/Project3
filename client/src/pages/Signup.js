@@ -71,13 +71,13 @@ const Signup = () => {
               type='text'
               name='email'
               onChange={handleChange}
-              autoFocus
               value={formState.email}
             />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              type='password'
               placeholder='*******'
               name='password'
               value={formState.password}
