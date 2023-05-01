@@ -8,6 +8,8 @@ import ChartFactory from "../components/ChartFactory";
 
 const SinglePost = () => {
 
+  const apiKey = `${process.env.REACT_APP_API_KEY}`
+
   const { postId } = useParams();
   console.log(postId)
 

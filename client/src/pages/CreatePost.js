@@ -53,7 +53,7 @@ const CreatePost = () => {
                         {data ? (
                             <p>
                                 Success! You may now head{" "}
-                                <Link to="/home">back to the homepage.</Link>
+                                <Link onClick={() => window.location.assign('/home')}>back to the homepage.</Link>
                             </p>
                         ) : (
                                 <form onSubmit={handleFormSubmit}>
@@ -63,6 +63,7 @@ const CreatePost = () => {
                                         name="postTitle"
                                         type="text"
                                         value={formState.postTitle}
+                                        required
                                         onChange={handleChange}
                                         />
                                     <label htmlFor="company">Post Text:</label> 
@@ -71,6 +72,7 @@ const CreatePost = () => {
                                         value={formState.postText}
                                         className="form-input w-100"
                                         style={{ lineHeight: '1.5' }}
+                                        required
                                         onChange={handleChange}
                                     />
                                     <label htmlFor="company">Enter the name of a company to find its stock symbol:</label> 
@@ -79,6 +81,7 @@ const CreatePost = () => {
                                         type="text"
                                         id="companyName"
                                         name="company"
+                                        required
                                     />
                                     <label htmlFor="duration">Select period:</label>
                                     <br />
@@ -94,7 +97,7 @@ const CreatePost = () => {
                                     </button>
                                     <br />
                                         <div id="results"></div>
-                                        <ul id="stockSymbols"></ul>
+                                        <div id="stockSymbols"></div>
                                         <canvas id="myChart"></canvas>
                                     <br/>
                                     <button
