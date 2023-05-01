@@ -6,6 +6,7 @@ import { DELETE_POST } from "../utils/mutations";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import CommentForm from "../components/CommentForm";
 import CommentList from '../components/CommentList';
+import { Link } from 'react-router-dom';
 
 import { findStockSymbol } from "../utils/stocksymbol";
 import Auth from "../utils/auth";
