@@ -34,6 +34,14 @@ Run the application from package.json
 
 ## Screenshot
 
+Here is what the Main Page looks like:
+![Main page](./screenshots/mainpage.png)
+
+Here is what clicking on a single post looks like:
+![Single Post](./screenshots/singlepost.png)
+
+Here is what creating a post looks like:
+![Create Post](./screenshots/createpost.png)
 
 ## Heroku
 
