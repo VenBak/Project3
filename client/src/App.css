@@ -142,8 +142,8 @@ footer {
 .commentList {
   position: relative;
   overflow: scroll;
-  /* width: 530px;
-  height: 530px; */
+  /* width: 530px; */
+  height: 530px; 
   padding: 2px;
 }
 .singleComment {
