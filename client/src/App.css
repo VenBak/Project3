@@ -57,6 +57,9 @@ button.red {
 .link {
   text-decoration: none;
 }
+.updatePost {
+  display: flex;
+}
 .updatePostLink, .updatePost button {
   font-size: 15px;
   padding: 0.5em;
@@ -135,8 +138,8 @@ footer {
 .commentList {
   position: relative;
   overflow: scroll;
-  width: 530px;
-  height: 530px;
+  /* width: 530px;
+  height: 530px; */
   padding: 2px;
 }
 .singleComment {
