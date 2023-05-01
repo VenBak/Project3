@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutations";
 import { searchSymbol } from "../utils/stockSymbolSearch";
-
 import Auth from "../utils/auth";
 import ButtonFactory from "../components/ButtonFactory";
 import ChartFactory from "../components/ChartFactory";
@@ -11,7 +10,7 @@ import ChartFactory from "../components/ChartFactory";
 
 
 const CreatePost = () => {
-    
+
     const [formState, setFormState] = useState({
         postTitle: '',
         postText: '',
@@ -111,27 +110,34 @@ const CreatePost = () => {
                             <form onSubmit={handleFormSubmit}>
                                 <label htmlFor="postTitle">Post Title:</label>
                                 <input
-                                    placeholder={formState.postTitle}
+                                    value={formState.postTitle}
                                     name="postTitle"
-                                    type="postTitle"
+                                    type="text"
                                     id="postTitle"
+                                    className="form-input"
+                                    required
                                     onChange={handleChange}
                                 />
                                 <label htmlFor="postText">Post Text:</label>
                                 <input
-                                    placeholder={formState.postText}
+                                    value={formState.postText}
                                     name="postText"
-                                    type="postText"
+                                    type="text"
+                                    className="form-input w-100"
+                                    style={{ lineHeight: '1.5' }}
+                                    required
                                     id="postText"
                                     onChange={handleChange}
                                 />
                                 <label htmlFor="chartSymbol">Stock Symbol:</label>
                                 <input
-                                    placeholder={formState.chartSymbol}
+                                    value={formState.chartSymbol}
+                                    className="form-input"
                                     name="chartSymbol"
-                                    type="chartSymbol"
+                                    type="text"
                                     id="chartSymbol"
                                     onChange={handleChange}
+                                    required
                                 />
                                 <select name="chartDuration" id="postDuration" defaultValue={"1d"} onChange={handleChange}>
                                     <option value="1m">1 Minute</option>
@@ -139,35 +145,39 @@ const CreatePost = () => {
                                     <option value="1wk">1 Week</option>
                                     <option value="1mo">1 Month</option>
                                 </select>
-                                <br></br>
-                                <button className="btn btn-block btn-primary" style={{ cursor: "pointer" }} onClick={handleSearch}>Search</button>
-                                <br></br>
-                                {showButtons ? (
-                                    <div id="buttonContainer">
-                                        {buttonSymbol.map((symbol, index) => (
-                                            <ButtonFactory symbol={symbol} name={buttonName[index]} onClick={handleButtonClick} />
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <div></div>
-                                )}
-                                <br></br>
-                                {showChart ? (
-                                    <div>
-                                        <canvas id="myChart" width="400" height="200"></canvas>
-                                        <ChartFactory symbol={formState.chartSymbol} duration={formState.chartDuration} />
-                                    </div>
-                                ) : (
-                                    <div></div>
-                                )}
-                                <button
-                                    className="btn btn-block btn-primary"
-                                    style={{ cursor: "pointer" }}
-                                    type="submit"
-                                    onClick={handleFormSubmit}
-                                >
-                                    Submit
-                                </button>
+                                <div>
+                                    <br></br>
+                                    <button className="btn btn-block btn-primary" style={{ cursor: "pointer" }} onClick={handleSearch}>Search</button>
+                                    <br></br>
+                                    {showButtons ? (
+                                        <div id="buttonContainer">
+                                            {buttonSymbol.map((symbol, index) => (
+                                                <ButtonFactory symbol={symbol} name={buttonName[index]} onClick={handleButtonClick} />
+                                            ))}
+                                            <br></br>
+                                        </div>
+
+                                    ) : (
+                                        <div></div>
+                                    )}
+                                    {showChart ? (
+                                        <div>
+                                            <canvas id="myChart" width="400" height="200"></canvas>
+                                            <ChartFactory symbol={formState.chartSymbol} duration={formState.chartDuration} />
+                                        </div>
+                                    ) : (
+                                        <div></div>
+                                    )}
+                                    <br></br>
+                                    <button
+                                        className="btn btn-block btn-primary"
+                                        style={{ cursor: "pointer" }}
+                                        type="submit"
+                                        onClick={handleFormSubmit}
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
                             </form>
                         )}
                     </div>
