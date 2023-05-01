@@ -60,6 +60,10 @@ button.red {
 .updatePost {
   display: flex;
 }
+.updatePostLink:hover {
+  color: white;
+  opacity: 0.8;
+}
 .updatePostLink, .updatePost button {
   font-size: 15px;
   padding: 0.5em;
