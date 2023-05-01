@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import ChartFactory from "../components/ChartFactory";
 import { useQuery, useMutation} from '@apollo/client';
 import { DELETE_POST } from "../utils/mutations";
 import { QUERY_SINGLE_POST } from "../utils/queries";
@@ -47,32 +47,12 @@ const SinglePost = () => {
     <div className="singlePostPageContainer">
       <div className="stockContainer">
         <div className="stockDetails">
-          <h2>Stock Details TBD</h2>
-          <label htmlFor="company">Enter the name of a company to find its stock symbol:</label> 
-          <input
-              className="form-input d-block my-2"
-              type="text"
-              id="companyName"
-              name="company"
-              required
-          />
-          <label htmlFor="duration d-block my-2">Select period:</label>
-          <br />
-          <select id="duration" name="duration" class="form-select w-auto my-2" aria-label="Default select example">
-              <option value="1min">1 min</option>
-              <option value="1day">1 day</option>
-              <option value="1week">1 week</option>
-              <option value="1month">1 month</option>
-          </select>
-          <br />
-          <button type="button" class="btn btn-primary" onClick={() => findStockSymbol(apiKey)}>
-              Search
-          </button>
-          <br />
-              <div id="results"></div>
-              <div id="stockSymbols"></div>
-              <canvas id="myChart"></canvas>
-          <br/>
+          <h2><b>{post.chartSymbol}</b></h2>
+          <p>{post.chartDuration}</p>
+        </div>
+        <div className="stockChart">
+          <canvas id="myChart" width="400" height="400"></canvas>
+          <ChartFactory symbol={post.chartSymbol} duration={post.chartDuration} />
         </div>
       </div>
       <div className="postContainer">
@@ -87,12 +67,12 @@ const SinglePost = () => {
         </div>
         <div className="commentDetails">
           <h2><b>Comments</b></h2>
-            <div>
-              <CommentForm postId={post._id} />
-            </div>
-            <div>
-              <CommentList comments={post.comments} />
-            </div>
+          <div>
+            <CommentForm postId={post._id} />
+          </div>
+          <div>
+            <CommentList comments={post.comments} />
+          </div>
         </div>
       </div>
     </div >)

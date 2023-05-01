@@ -13,6 +13,8 @@ const typeDefs = gql`
     postText: String
     postAuthor: String
     createdAt: String
+    chartSymbol: String
+    chartDuration: String
     comments: [Comment]
   }
   type Comment {
@@ -24,7 +26,6 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-
   type Query {
     users: [User]
     user(username: String!): User
@@ -38,7 +39,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     updateUser(id: ID!, username: String!, email: String!, password: String!): Auth
     deleteUser(userId: ID!): User
-    createPost(postTitle: String!, postText: String!): Post
+    createPost(postTitle: String!, postText: String!, chartSymbol:String!, chartDuration:String!): Post
     updatePost(id: ID!, postTitle: String!, postText: String!): Post
     addComment(postId: ID!, commentText: String!): Post
     deletePost(postId: ID!): Post

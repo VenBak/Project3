@@ -21,6 +21,14 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
+    chartSymbol: {
+        type: String,
+        required: true
+    },
+    chartDuration: {
+        type: String,
+        required: true
+    },
     comments: [
         {
             commentText: {
