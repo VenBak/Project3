@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Update from './pages/Update';
 import CreatePost from './pages/CreatePost';
 import SinglePost from './pages/SinglePost';
+import UpdatePost from './pages/UpdatePost';
 import { useState } from 'react';
 import './App.css';
 import Home from './pages/Home';
@@ -84,13 +85,17 @@ function App() {
                 element={<Home />} 
               />
               <Route 
+                path="/" 
+                element={<Home />} 
+              />
+              <Route 
                 path="/about" 
                 element={<About/>} 
               />
-              {/* <Route 
-                path="/profile" 
-                element={<Profile />} 
-              /> */}
+              <Route 
+                path="/updatepost/:postId" 
+                element={<UpdatePost />} 
+              />
             </Routes>
           </div>
           <Footer />

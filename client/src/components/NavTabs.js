@@ -7,7 +7,7 @@ function NavTabs (){
   return (
     <ul className="nav justify-content-center Tabs">
       <li className="nav-item">
-          <Link className="text-light" style={{ textDecoration: "none"}} onClick={() => window.location.assign('/home')}>
+          <Link className="text-light" style={{ textDecoration: "none" }} onClick={() => window.location.assign('/home')}>
             <h3 className="m-0 link" style={{fontSize: "15px"}}>Home</h3>
           </Link>
       </li>
