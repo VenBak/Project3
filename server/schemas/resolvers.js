@@ -77,22 +77,30 @@ const resolvers = {
           }
           return post;
         }
-
         );
-
         await User.findOneAndUpdate(
           { _id: context.user._id }, //put back when login is working
           { $push: { posts: post._id } }
-
         );
       }
       else {
         throw new AuthenticationError('You need to be logged in!');
       }
     },
+
+    updatePost: async (parent, { id, postTitle, postText }) => {
+      const post = await Post.findOneAndUpdate(
+        { _id: id },
+        { postTitle, postText },
+        { new: true }
+      );
+      return post;
+    },
+
     deletePost: async (parent, { postId }) => {
       return Post.findOneAndDelete({ _id: postId });
     },
+
     addComment: async (parent, { postId, commentText }) => {
       return Post.findOneAndUpdate(
         { _id: postId },

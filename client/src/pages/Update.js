@@ -34,7 +34,6 @@ const Update = () => {
 
     const handleUpdate = async (event) => {
         event.preventDefault();
-
         try {
             const { data } = await updateUser({
                 variables: { updateUserId: Auth.getProfile().data._id, username: formState.username, email: formState.email, password: formState.password }

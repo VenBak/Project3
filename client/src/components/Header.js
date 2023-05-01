@@ -26,7 +26,7 @@ const Header = () => {
                             <Link className="red" to="/update">
                                 Update
                             </Link>
-                            <Link className="red" c to="/createpost">
+                            <Link className="red" to="/createpost">
                                 Create Post
                             </Link>
 

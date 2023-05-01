@@ -35,8 +35,8 @@ const Login = () => {
       const { data } = await login({
         variables: { ...formState },
       });
-
       Auth.login(data.login.token);
+      window.location.assign('/home');
     } catch (e) {
       console.error(e);
     }
