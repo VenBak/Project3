@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Update from './pages/Update';
-import CreatePost from './pages/CreatePost';
+import CreatePost from './pages/CreatePostSymbol';
 import SinglePost from './pages/SinglePost';
 import { useState } from 'react';
 import './App.css';
@@ -55,7 +55,7 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           {/* <NavTabs style={{border: "1px solid black"}}/> */}
-      {/* Here we are calling the renderPage method which will return a component 
+          {/* Here we are calling the renderPage method which will return a component 
       {renderPage()} */}
           <div className="container">
             <Routes>
@@ -79,13 +79,13 @@ function App() {
                 path="/createpost"
                 element={<CreatePost />}
               />
-              <Route 
-                path="/home" 
-                element={<Home />} 
+              <Route
+                path="/home"
+                element={<Home />}
               />
-              <Route 
-                path="/about" 
-                element={<About/>} 
+              <Route
+                path="/about"
+                element={<About />}
               />
               {/* <Route 
                 path="/profile" 

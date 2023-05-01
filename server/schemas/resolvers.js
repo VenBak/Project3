@@ -24,10 +24,8 @@ const resolvers = {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
+    }
   },
-
-
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -69,11 +67,11 @@ const resolvers = {
       return User.findOneAndDelete({ _id: userId });
     },
 
-    createPost: async (parent, { postTitle, postText }, context) => {
+    createPost: async (parent, { postTitle, postText, chartSymbol, chartDuration }, context) => {
       console.log(context.user);
       if (context.user) {
         var postAuthor = context.user.username;
-        const post = await Post.create({ postTitle, postText, postAuthor }).then((post) => {
+        const post = await Post.create({ postTitle, postText, postAuthor, chartSymbol, chartDuration }).then((post) => {
           if (!post) {
             throw new AuthenticationError('Post could not be created!');
           }

@@ -48,13 +48,15 @@ export const DELETE_USER = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost($postTitle: String!, $postText: String!) {
-    createPost(postTitle: $postTitle, postText: $postText) {
+  mutation createPost($postTitle: String!, $postText: String!, $chartSymbol: String!, $chartDuration: String!) {
+    createPost(postTitle: $postTitle, postText: $postText, chartSymbol: $chartSymbol, chartDuration: $chartDuration) {
       _id
       postTitle
       postText
       postAuthor
       createdAt
+      chartSymbol
+      chartDuration
   }
 }
 `;
@@ -68,6 +70,8 @@ export const ADD_COMMENT = gql`
       postText
       postAuthor
       createdAt
+      chartSymbol
+      chartDuration
       comments {
         _id
         commentText

@@ -19,6 +19,8 @@ export const QUERY_SINGLE_POST = gql`
       postText
       postAuthor
       createdAt
+      chartSymbol
+      chartDuration
       comments {
         _id
         commentText
@@ -45,6 +47,8 @@ export const QUERY_POSTS = gql`
       postText
       postAuthor
       createdAt
+      chartSymbol
+      chartDuration
       # comments {
       #   _id
       #   commentText
@@ -54,7 +58,6 @@ export const QUERY_POSTS = gql`
     }
   }
 `;
-
 
 
 

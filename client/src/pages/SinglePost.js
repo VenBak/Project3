@@ -1,15 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { useMutation } from "@apollo/client";
-import { CREATE_COMMENT } from "../utils/mutations";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import CommentForm from "../components/CommentForm";
 import CommentList from '../components/CommentList';
-
-
-import Auth from "../utils/auth";
+import ChartFactory from "../components/ChartFactory";
 
 const SinglePost = () => {
 
@@ -30,7 +25,12 @@ const SinglePost = () => {
     <div className="singlePostPageContainer">
       <div className="stockContainer">
         <div className="stockDetails">
-          <h2>Stock Details TBD</h2>
+          <h2><b>{post.chartSymbol}</b></h2>
+          <p>{post.chartDuration}</p>
+        </div>
+        <div className="stockChart">
+          <canvas id="myChart" width="400" height="400"></canvas>
+          <ChartFactory symbol={post.chartSymbol} duration={post.chartDuration} />
         </div>
       </div>
       <div className="postContainer">
@@ -41,12 +41,12 @@ const SinglePost = () => {
         </div>
         <div className="commentDetails">
           <h2><b>Comments</b></h2>
-            <div>
-              <CommentForm postId={post._id} />
-            </div>
-            <div>
-              <CommentList comments={post.comments} />
-            </div>
+          <div>
+            <CommentForm postId={post._id} />
+          </div>
+          <div>
+            <CommentList comments={post.comments} />
+          </div>
         </div>
       </div>
     </div >)
