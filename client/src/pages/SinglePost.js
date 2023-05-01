@@ -7,9 +7,12 @@ import { QUERY_SINGLE_POST } from "../utils/queries";
 import CommentForm from "../components/CommentForm";
 import CommentList from '../components/CommentList';
 
+import { findStockSymbol } from "../utils/stocksymbol";
 import Auth from "../utils/auth";
 
 const SinglePost = () => {
+
+  const apiKey = `${process.env.REACT_APP_API_KEY}`
 
   const { postId } = useParams();
   console.log(postId)
@@ -45,6 +48,31 @@ const SinglePost = () => {
       <div className="stockContainer">
         <div className="stockDetails">
           <h2>Stock Details TBD</h2>
+          <label htmlFor="company">Enter the name of a company to find its stock symbol:</label> 
+          <input
+              className="form-input d-block my-2"
+              type="text"
+              id="companyName"
+              name="company"
+              required
+          />
+          <label htmlFor="duration d-block my-2">Select period:</label>
+          <br />
+          <select id="duration" name="duration" class="form-select w-auto my-2" aria-label="Default select example">
+              <option value="1min">1 min</option>
+              <option value="1day">1 day</option>
+              <option value="1week">1 week</option>
+              <option value="1month">1 month</option>
+          </select>
+          <br />
+          <button type="button" class="btn btn-primary" onClick={() => findStockSymbol(apiKey)}>
+              Search
+          </button>
+          <br />
+              <div id="results"></div>
+              <div id="stockSymbols"></div>
+              <canvas id="myChart"></canvas>
+          <br/>
         </div>
       </div>
       <div className="postContainer">

@@ -97,7 +97,7 @@ const CreatePost = () => {
                                     </button>
                                     <br />
                                         <div id="results"></div>
-                                        <ul id="stockSymbols"></ul>
+                                        <div id="stockSymbols"></div>
                                         <canvas id="myChart"></canvas>
                                     <br/>
                                     <button
