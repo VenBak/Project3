@@ -11,8 +11,7 @@ import ChartFactory from "../components/ChartFactory";
 
 
 const CreatePost = () => {
-
-
+    
     const [formState, setFormState] = useState({
         postTitle: '',
         postText: '',
@@ -178,11 +177,6 @@ const CreatePost = () => {
         </main >
     );
 };
-
-
-
-
-
 
 export default CreatePost;
 
