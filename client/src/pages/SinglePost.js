@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { useMutation } from "@apollo/client";
-import { CREATE_COMMENT } from "../utils/mutations";
+import { useQuery, useMutation} from '@apollo/client';
+import { DELETE_POST } from "../utils/mutations";
 import { QUERY_SINGLE_POST } from "../utils/queries";
 import CommentForm from "../components/CommentForm";
 import CommentList from '../components/CommentList';
-
 
 import Auth from "../utils/auth";
 
@@ -21,6 +19,22 @@ const SinglePost = () => {
   });
 
   const post = data?.post || {};
+
+
+  const [deletePost, { error1, data1 }] = useMutation(DELETE_POST);
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    try {
+        const { data } = await deletePost({
+            variables: { postId: postId }
+        });
+        window.location.assign('/');
+    }
+    catch (e) {
+        console.error(e);
+    }
+};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -38,6 +52,10 @@ const SinglePost = () => {
           <h2><b>{post.postTitle}</b></h2>
           <p>{post.createdAt} by {post.postAuthor}</p>
           <p>{post.postText}</p>
+        </div>
+        <div className="updatePost"> 
+          {Auth.getProfile().data.username === post.postAuthor ? <button type="submit" className="btn btn-primary" onClick={handleDelete}>Delete Post</button> : ''}
+          {Auth.getProfile().data.username === post.postAuthor ? <Link className="updatePostLink" to={(`/updatepost/${post._id}`)}>Update Post</Link> : ''}
         </div>
         <div className="commentDetails">
           <h2><b>Comments</b></h2>
